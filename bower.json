@@ -1,0 +1,26 @@
+{
+  "name": "Flappy",
+  "version": "0.0.0",
+  "homepage": "https://github.com/stefanh13/FlappyBird",
+  "authors": [
+    "Stefán <stefanh13@ru.is>"
+  ],
+  "description": "Game",
+  "main": "app.js",
+  "keywords": [
+    "CSS3",
+    "HTML5",
+    "JavaScript"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "jquery": "~2.1.3"
+  }
+}

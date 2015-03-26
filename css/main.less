@@ -1,0 +1,24 @@
+@space: blue;
+@bird: rgb(0, 204, 0);
+@initialPosY: 23em;
+@initialPosX: 19em;
+
+.gameGrid{
+	font-size: 10px;
+	position: absolute;
+	background-color: @space;
+	height: 55em;
+	width: 50em;
+	top: 17%;
+	left: 29%;
+
+}
+
+.birdy{
+	position: absolute;
+	background-color: @bird;
+	height: 5em;
+	width: 5em;
+	top: @initialPosY;
+	left: @initialPosX;
+}

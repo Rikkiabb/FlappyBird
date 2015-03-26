@@ -1,0 +1,17 @@
+.gameGrid {
+  font-size: 10px;
+  position: absolute;
+  background-color: blue;
+  height: 55em;
+  width: 50em;
+  top: 17%;
+  left: 29%;
+}
+.birdy {
+  position: absolute;
+  background-color: #00cc00;
+  height: 5em;
+  width: 5em;
+  top: 23em;
+  left: 19em;
+}
