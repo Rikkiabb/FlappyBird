@@ -2,16 +2,26 @@
   font-size: 10px;
   position: absolute;
   background-color: blue;
-  height: 55em;
-  width: 50em;
-  top: 17%;
-  left: 29%;
+  height: 58em;
+  width: 60em;
+  top: 50%;
+  left: 50%;
+  margin-left: -31em;
+  margin-top: -26.5em;
+  overflow: hidden;
 }
 .birdy {
   position: absolute;
   background-color: #00cc00;
   height: 5em;
   width: 5em;
-  top: 23em;
-  left: 19em;
+  top: 0em;
+  left: 0em;
+}
+.topObstacle {
+  background-color: red;
+  height: 0em;
+  width: 0em;
+  top: 0em;
+  left: 0em;
 }

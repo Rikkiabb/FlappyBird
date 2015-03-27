@@ -25,23 +25,33 @@ window.Player = (function() {
 	};
 
 	Player.prototype.onFrame = function(delta) {
-		if (Controls.keys.right) {
-			this.pos.x += delta * SPEED;
-		}
-		if (Controls.keys.left) {
-			this.pos.x -= delta * SPEED;
-		}
-		if (Controls.keys.down) {
-			this.pos.y += delta * SPEED;
-		}
-		if (Controls.keys.up) {
-			this.pos.y -= delta * SPEED;
+		// if (Controls.keys.right) {
+		// 	this.pos.x += delta * SPEED;
+		// }
+		// if (Controls.keys.left) {
+		// 	this.pos.x -= delta * SPEED;
+		// }
+		// if (Controls.keys.down) {
+		// 	this.pos.y += delta * SPEED;
+		// }
+		// if (Controls.keys.up) {
+		// 	this.pos.y -= delta * SPEED;
+
+		// }
+		if (Controls.keys.space) {
+			if(Controls.didJump()){
+				this.pos.y -= 0.3333 * SPEED;
+			}
+			
 		}
 
+		this.pos.y += delta * SPEED;
+		
 		this.checkCollisionWithBounds();
 
 		// Update UI
 		this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
+		
 	};
 
 	Player.prototype.checkCollisionWithBounds = function() {
