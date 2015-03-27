@@ -20,8 +20,8 @@
 }
 .topObstacle {
   background-color: red;
-  height: 0em;
-  width: 0em;
+  height: 20em;
+  width: 5em;
   top: 0em;
   left: 0em;
 }

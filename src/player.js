@@ -38,12 +38,12 @@ window.Player = (function() {
 		// 	this.pos.y -= delta * SPEED;
 
 		// }
-		if (Controls.keys.space) {
-			if(Controls.didJump()){
-				this.pos.y -= 0.3333 * SPEED;
-			}
-			
+		// if 	(Controls.keys.space) {
+		if(Controls.didJump()){
+			this.pos.y -= 0.3333 * SPEED;
 		}
+			
+		// }
 
 		this.pos.y += delta * SPEED;
 		
@@ -55,12 +55,28 @@ window.Player = (function() {
 	};
 
 	Player.prototype.checkCollisionWithBounds = function() {
+
 		if (this.pos.x < 0 ||
 			this.pos.x + WIDTH > this.game.WORLD_WIDTH ||
 			this.pos.y < 0 ||
 			this.pos.y + HEIGHT > this.game.WORLD_HEIGHT) {
 			return this.game.gameover();
 		}
+		console.log("---");
+		console.log(this.game.pipe1.pos.y);
+		console.log(this.pos.y);
+		console.log("w:", WIDTH);
+		console.log("---");
+		if(this.pos.x + WIDTH >= this.game.pipe1.pos.x &&
+			this.pos.y <= this.game.pipe1.pos.y + this.game.pipe1.size.h &&
+			this.pos.x <= this.game.pipe1.pos.x + this.game.pipe1.size.w
+		){
+			return this.game.gameover();
+			
+			
+		}
+
+		
 	};
 
 	return Player;
