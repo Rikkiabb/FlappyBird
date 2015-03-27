@@ -2,7 +2,9 @@ window.Game = (function (){
 
 	var Game = function(el) {
 		this.el = el;
-		this.pipe1 = new window.Pipe(this.el.find('.topObstacle'));
+
+		this.pipe1 = new window.Pipe(this.el.find('.topObstacle'), this.el.find('.bottomObstacle'));
+		//this.pipe2 = new window.Pipe(this.el.find('.bottomObstacle'));
 		this.player = new window.Player(this.el.find('.birdy'), this);
 		this.isPlaying = false;
 		// Cache a bound onFrame since we need it each frame.

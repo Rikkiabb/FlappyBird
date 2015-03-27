@@ -25,27 +25,12 @@ window.Player = (function() {
 	};
 
 	Player.prototype.onFrame = function(delta) {
-		// if (Controls.keys.right) {
-		// 	this.pos.x += delta * SPEED;
-		// }
-		// if (Controls.keys.left) {
-		// 	this.pos.x -= delta * SPEED;
-		// }
-		// if (Controls.keys.down) {
-		// 	this.pos.y += delta * SPEED;
-		// }
-		// if (Controls.keys.up) {
-		// 	this.pos.y -= delta * SPEED;
 
-		// }
-		// if 	(Controls.keys.space) {
 		if(Controls.didJump()){
-			this.pos.y -= 0.3333 * SPEED;
+			this.pos.y -= 0.35 * 20;
 		}
-			
-		// }
 
-		this.pos.y += delta * SPEED;
+		this.pos.y += delta * 20;
 		
 		this.checkCollisionWithBounds();
 
@@ -62,18 +47,31 @@ window.Player = (function() {
 			this.pos.y + HEIGHT > this.game.WORLD_HEIGHT) {
 			return this.game.gameover();
 		}
-		console.log("---");
-		console.log(this.game.pipe1.pos.y);
-		console.log(this.pos.y);
-		console.log("w:", WIDTH);
-		console.log("---");
-		if(this.pos.x + WIDTH >= this.game.pipe1.pos.x &&
-			this.pos.y <= this.game.pipe1.pos.y + this.game.pipe1.size.h &&
-			this.pos.x <= this.game.pipe1.pos.x + this.game.pipe1.size.w
+
+
+		// console.log("---");
+		// console.log(this.game.pipe1.size.h);
+		// console.log(this.game.pipe1.size.w);
+		// console.log(this.game.pipe1.pos.y);
+		// console.log(this.game.pipe1.pos.x);
+		// console.log("width:", WIDTH);
+		// console.log("x + width:", this.pos.x + WIDTH);
+		// console.log("---");
+
+		var top = this.game.pipe1.top;
+
+		// if(this.pos.x + WIDTH >= top.pos.x &&
+		// 	this.pos.y <= top.pos.y + top.size.h &&
+		// 	this.pos.x <= top.pos.x + top.size.w
+		// ){
+		// 	return this.game.gameover();	
+		// }
+		var bottom = this.game.pipe1.bottom;
+		if(this.pos.x + WIDTH >= bottom.pos.x &&
+			 this.pos.y + HEIGHT <= bottom.pos.y
+			 // this.pos.x <= bottom.pos.x + bottom.size.w 
 		){
 			return this.game.gameover();
-			
-			
 		}
 
 		

@@ -5,55 +5,45 @@ window.Pipe = (function (){
 	var INITIAL_POSITION_X = 70;
 	var INITIAL_POSITION_Y = 0;
 	var INITIAL_WIDTH = 5;
-	var INITIAL_HEIGHT = 20;
+	var INITIAL_HEIGHT = 30;
 
-	var Pipe = function(el, game) {
-		this.el = el;
-		this.game = game;
-		this.pos = { x: 0, y: 0 };
-		this.size = {w: 0, h: 0};
+	var Pipe = function(top, bottom) {
+		this.top = top;
+		this.bottom = bottom;
 
+		this.top.pos = { x: 0, y: 0 };
+		this.top.size = {w: 0, h: 0};
+
+		this.bottom.pos = { x: 0, y: 0 };
+		this.bottom.size = {w: 0, h: 0};
 		// Cache a bound onFrame since we need it each frame.
 		this.onFrame = this.onFrame.bind(this);
 	};
 
 	Pipe.prototype.reset = function() {
-		this.pos.x = INITIAL_POSITION_X;
-		this.pos.y = INITIAL_POSITION_Y;
-		this.size.w = INITIAL_WIDTH;
-		this.size.h = INITIAL_HEIGHT;
-		//this.el.css('transform', 'scale(' + this.size.w + 'em, ' + this.size.h + 'em)');
+		this.top.pos.x = INITIAL_POSITION_X;
+		this.top.pos.y = INITIAL_POSITION_Y;
+		this.top.size.w = INITIAL_WIDTH;
+		this.top.size.h = INITIAL_HEIGHT;
+
+		this.bottom.pos.x = INITIAL_POSITION_X;
+		this.bottom.pos.y = INITIAL_POSITION_Y + 13;
+		this.bottom.size.w = INITIAL_WIDTH;
+		this.bottom.size.h = INITIAL_HEIGHT;
 	};
 
 	Pipe.prototype.onFrame = function(delta) {
-		// if (Controls.keys.right) {
-		// 	this.pos.x += delta * SPEED;
-		// }
-		// if (Controls.keys.left) {
-		// 	this.pos.x -= delta * SPEED;
-		// }
-		// if (Controls.keys.down) {
-		// 	this.pos.y += delta * SPEED;
-		// }
-		// if (Controls.keys.up) {
-		// 	this.pos.y -= delta * SPEED;
 
-		// }
-		// if (Controls.keys.space) {
-		// 	if(Controls.didJump()){
-		// 		this.pos.y -= 0.3333 * SPEED;
-		// 	}
-			
-		// }
-
-		this.pos.x -= delta * 10;
-		// this.pos.x = this.pos.x % 50;
-		// console.log("-------", this.pos.x);
-		
+		this.top.pos.x -= delta * 10;
+		this.bottom.pos.x -= delta * 10;
+		if(this.top.pos.x <= -6){
+			this.top.pos.x = INITIAL_POSITION_X;
+			this.bottom.pos.x = INITIAL_POSITION_X;
+		}
 
 		// Update UI
-		this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
-		// this.el.css('transform', 'scale(' + this.size.w + 'em, ' + this.size.h + 'em)');
+		this.top.css('transform', 'translateZ(0) translate(' + this.top.pos.x + 'em, ' + this.top.pos.y + 'em)');
+		this.bottom.css('transform', 'translateZ(0) translate(' + this.bottom.pos.x + 'em, ' + this.bottom.pos.y + 'em)');
 	};
 
 	return Pipe;
