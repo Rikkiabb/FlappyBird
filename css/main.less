@@ -84,6 +84,8 @@ img{
 	width: 74.1em;
 	top: 52em;
 	left: 0em;
+	
+	-webkit-transform: translateZ(0);
 
 	-webkit-animation-name: ground-animation;
 	-webkit-animation-duration: 0.75s;
@@ -94,12 +96,82 @@ img{
 	-webkit-animation-fill-mode: none;
 }
 
+.ship1{
+	position: absolute;
+	height: 12em;
+	width: 11em;
+	top: 2em;
+	left: 65em;
+	overflow: hidden;
+	
+	-webkit-transform: translateZ(0);
+
+	-webkit-animation-name: ship-animation;
+	-webkit-animation-duration: 4s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-delay: 0;
+	-webkit-animation-direction: normal;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-fill-mode: none;
+
+
+}
+
+.cow{
+	position: absolute;
+	height: 6em;
+	width: 7em;
+	top: 17em;
+	left: 160em;
+
+	-webkit-transform: translateZ(0);
+	
+
+	-webkit-animation-name: cow-animation;
+	-webkit-animation-duration: 12s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-delay: 0;
+	-webkit-animation-direction: normal;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-fill-mode: none;
+
+
+}
+
+@-webkit-keyframes cow-animation {
+  from {
+    -webkit-transform: rotateZ(180deg);
+  }
+  to {
+    -webkit-transform: translate(-2000px, 0);
+  }
+}
+
+
 @-webkit-keyframes ground-animation {
   from {
     -webkit-transform: none;
   }
   to {
     -webkit-transform: translate(-141px, 0);
+  }
+}
+
+@-webkit-keyframes ship-animation {
+  from {
+    -webkit-transform: none;
+  }
+  25%{
+  	-webkit-transform: translate(30px, 0);
+  }
+  50%{
+  	-webkit-transform: translate(-500px, 35px);
+  }
+  75%{
+  	-webkit-transform: translate(-1000px, 10px);
+  }
+  to {
+    -webkit-transform: translate(-2000px, 0);
   }
 }
 
