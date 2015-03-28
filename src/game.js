@@ -3,7 +3,8 @@ window.Game = (function (){
 	var Game = function(el) {
 		this.el = el;
 
-		this.pipe1 = new window.Pipe(this.el.find('.topObstacle'), this.el.find('.bottomObstacle'));
+		this.pipe1 = new window.Pipe(this.el.find('.topObstacle'), this.el.find('.bottomObstacle'), 60);
+		//this.pipe2 = new window.Pipe(this.el.find('.topObstacle2'), this.el.find('.bottomObstacle2'), 40);
 		//this.pipe2 = new window.Pipe(this.el.find('.bottomObstacle'));
 		this.player = new window.Player(this.el.find('.birdy'), this);
 		this.isPlaying = false;
@@ -37,6 +38,7 @@ window.Game = (function (){
 		// Update game entities.
 		this.player.onFrame(delta);
 		this.pipe1.onFrame(delta);
+		//this.pipe2.onFrame(delta);
 
 		// Request next frame.
 		window.requestAnimationFrame(this.onFrame);
@@ -45,6 +47,7 @@ window.Game = (function (){
 	Game.prototype.reset = function() {
 		this.player.reset();
 		this.pipe1.reset();
+		//this.pipe2.reset();
 	};
 
 

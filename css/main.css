@@ -20,14 +20,14 @@
 }
 .topObstacle {
   background-color: red;
-  height: 30em;
+  height: 40em;
   width: 5em;
   top: 0em;
   left: 0em;
 }
 .bottomObstacle {
   background-color: red;
-  height: 30em;
+  height: 40em;
   width: 5em;
   top: 0em;
   left: 0em;

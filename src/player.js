@@ -49,23 +49,14 @@ window.Player = (function() {
 		}
 
 
-		// console.log("---");
-		// console.log(this.game.pipe1.size.h);
-		// console.log(this.game.pipe1.size.w);
-		// console.log(this.game.pipe1.pos.y);
-		// console.log(this.game.pipe1.pos.x);
-		// console.log("width:", WIDTH);
-		// console.log("x + width:", this.pos.x + WIDTH);
-		// console.log("---");
-
 		var top = this.game.pipe1.top;
 
-		// if(this.pos.x + WIDTH >= top.pos.x &&
-		// 	this.pos.y <= top.pos.y + top.size.h &&
-		// 	this.pos.x <= top.pos.x + top.size.w
-		// ){
-		// 	return this.game.gameover();	
-		// }
+		if(this.pos.x + WIDTH >= top.pos.x &&
+			this.pos.y <= top.pos.y + top.size.h &&
+			this.pos.x <= top.pos.x + top.size.w
+		){
+			return this.game.gameover();	
+		}
 
 		var bottom = this.game.pipe1.bottom;
 
