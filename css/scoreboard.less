@@ -1,37 +1,5 @@
-.gameGrid {
-  font-size: 10px;
-  position: absolute;
-  background-color: blue;
-  height: 58em;
-  width: 60em;
-  top: 50%;
-  left: 50%;
-  margin-left: -31em;
-  margin-top: -26.5em;
-  overflow: hidden;
-}
-.birdy {
-  position: absolute;
-  background-color: #00cc00;
-  height: 5em;
-  width: 5em;
-  top: 0em;
-  left: 0em;
-}
-.topObstacle {
-  background-color: red;
-  height: 40em;
-  width: 5em;
-  top: 0em;
-  left: 0em;
-}
-.bottomObstacle {
-  background-color: red;
-  height: 40em;
-  width: 5em;
-  top: 0em;
-  left: 0em;
-}
+@terminalGreen: rgb(0,253,85);
+
 .Scoreboard {
   position: absolute;
   left: 50%;
@@ -46,22 +14,26 @@
   -webkit-transform: translate(0, -40em);
   -webkit-transition: -webkit-transform 0.5s;
 }
+
 /**
 * Reset transform to animate it into the correct spot on the screen.
 */
+
 .Scoreboard.is-visible {
   -webkit-transform: none;
 }
+
 .Scoreboard-restart {
   margin-top: 20em;
   font-size: inherit;
   padding: 0.4em 1.5em;
-  border: 0.2em solid #00fd55;
+  border: 0.2em solid @terminalGreen;
   background: none;
   cursor: pointer;
 }
+
 .Scoreboard-restartText {
   font-family: monospace;
   font-size: 2.4em;
-  color: #00fd55;
+  color: @terminalGreen;
 }
