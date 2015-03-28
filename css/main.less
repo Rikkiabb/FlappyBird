@@ -1,4 +1,4 @@
-@space: blue;
+@space: black;
 @bird: rgb(0, 204, 0);
 @pipe: red;
 
@@ -70,3 +70,33 @@
 	font-family: monospace;
 	color: white;
 }
+
+.ground{
+	position: absolute;
+	background-image: url("moon.jpg");
+    background-repeat: repeat-x;
+	height: 6em;
+	width: 74.1em;
+	top: 52em;
+	left: 0em;
+
+	-webkit-animation-name: ground-animation;
+	-webkit-animation-duration: 0.75s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-delay: 0;
+	-webkit-animation-direction: normal;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-fill-mode: none;
+}
+
+@-webkit-keyframes ground-animation {
+  from {
+    -webkit-transform: none;
+  }
+  to {
+    -webkit-transform: translate(-141px, 0);
+  }
+}
+
+@import "scoreboard";
+
