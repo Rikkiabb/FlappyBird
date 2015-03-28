@@ -1,4 +1,4 @@
-@space: blue;
+@space: black;
 @bird: rgb(0, 204, 0);
 @pipe: red;
 
@@ -40,6 +40,47 @@
 	width: 5em;
 	top: 0em;
 	left: 0em;
+}
+
+.ground{
+	position: absolute;
+	background-image: url("mist.jpg");
+    background-repeat: repeat-x;
+	height: 6em;
+	width: 70em;
+	top: 52em;
+	left: 0em;
+	-webkit-transform: translateZ(0);
+}
+
+.ground{
+	position: absolute;
+	background-image: url("moon.jpg");
+    background-repeat: repeat-x;
+	height: 6em;
+	width: 74.1em;
+	top: 52em;
+	left: 0em;
+}
+
+.ground{
+	-webkit-animation-name: ground-animation;
+	  -webkit-animation-duration: 0.75s;
+	  -webkit-animation-timing-function: linear;
+	  -webkit-animation-delay: 0;
+	  -webkit-animation-direction: normal;
+	  -webkit-animation-iteration-count: infinite;
+	  -webkit-animation-fill-mode: none;
+}
+
+
+@-webkit-keyframes ground-animation {
+  from {
+    -webkit-transform: none;
+  }
+  to {
+    -webkit-transform: translate(-141px, 0);
+  }
 }
 
 

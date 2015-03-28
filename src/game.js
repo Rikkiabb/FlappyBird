@@ -15,7 +15,7 @@ window.Game = (function (){
 	Game.prototype.start = function() {
 		
 		this.reset();
-
+		$(".ground").css("-webkit-animation-play-state", "running");
 		// Restart the onFrame loop
 		this.lastFrame = +new Date() / 1000;
 		window.requestAnimationFrame(this.onFrame);
@@ -53,7 +53,7 @@ window.Game = (function (){
 
 	Game.prototype.gameover = function() {
 		this.isPlaying = false;
-		
+		$(".ground").css("-webkit-animation-play-state", "paused");
 
 
 		// Should be refactored into a Scoreboard class.
@@ -69,7 +69,7 @@ window.Game = (function (){
 	};
 
 	Game.prototype.WORLD_WIDTH = 60;
-	Game.prototype.WORLD_HEIGHT = 58;
+	Game.prototype.WORLD_HEIGHT = 52;
 
 	return Game;
 })();
