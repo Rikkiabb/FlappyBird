@@ -38,7 +38,7 @@ window.Pipe = (function (){
 		this.top.size.h = INITIAL_HEIGHT;
 
 		this.bottom.pos.x = INITIAL_POSITION_X;
-		this.bottom.pos.y = INITIAL_POSITION_Y + 13 + INITIAL_HEIGHT;
+		this.bottom.pos.y = INITIAL_POSITION_Y + 16 + INITIAL_HEIGHT;
 		this.bottom.size.w = INITIAL_WIDTH;
 		this.bottom.size.h = INITIAL_HEIGHT;
 
@@ -48,39 +48,39 @@ window.Pipe = (function (){
 		this.top2.size.h = INITIAL_HEIGHT;
 
 		this.bottom2.pos.x = INITIAL_POSITION_X2;
-		this.bottom2.pos.y = INITIAL_POSITION_Y + 13 + INITIAL_HEIGHT;
+		this.bottom2.pos.y = INITIAL_POSITION_Y + 16 + INITIAL_HEIGHT;
 		this.bottom2.size.w = INITIAL_WIDTH;
 		this.bottom2.size.h = INITIAL_HEIGHT;
 	};
 
 	Pipe.prototype.onFrame = function(delta) {
 
-		this.top.pos.x -= delta * 10;
-		this.bottom.pos.x -= delta * 10;
+		this.top.pos.x -= delta * 15;
+		this.bottom.pos.x -= delta * 15;
 
-		this.top2.pos.x -= delta * 10;
-		this.bottom2.pos.x -= delta * 10;
+		this.top2.pos.x -= delta * 15;
+		this.bottom2.pos.x -= delta * 15;
 
 		if(this.top.pos.x <= -6){
 
 			var min = -32;
-			var max = -2;
+			var max = -5;
 			var newYpos = Math.floor(Math.random() * (max - min + 1)) + min;
 
 			this.top.pos.x = INITIAL_POSITION_X;
 			this.bottom.pos.x = INITIAL_POSITION_X;
 			this.top.pos.y = newYpos;
-			this.bottom.pos.y = newYpos + 13 + INITIAL_HEIGHT;
+			this.bottom.pos.y = newYpos + 16 + INITIAL_HEIGHT;
 		}
 		if(this.top2.pos.x <= -6){
 
 			var min = -32;
-			var max = -2;
+			var max = -5;
 			var newYpos = Math.floor(Math.random() * (max - min + 1)) + min;
 			this.top2.pos.x = INITIAL_POSITION_X;
 			this.bottom2.pos.x = INITIAL_POSITION_X;
 			this.top2.pos.y = newYpos;
-			this.bottom2.pos.y = newYpos + 13 + INITIAL_HEIGHT;
+			this.bottom2.pos.y = newYpos + 16 + INITIAL_HEIGHT;
 		}	
 
 		// Update UI
