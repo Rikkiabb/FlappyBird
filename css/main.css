@@ -24,6 +24,7 @@
   width: 5em;
   top: 0em;
   left: 0em;
+  position: absolute;
 }
 .bottomObstacle {
   background-color: red;
@@ -31,4 +32,21 @@
   width: 5em;
   top: 0em;
   left: 0em;
+  position: absolute;
+}
+.topObstacle2 {
+  background-color: yellow;
+  height: 40em;
+  width: 5em;
+  top: 0em;
+  left: 0em;
+  position: absolute;
+}
+.bottomObstacle2 {
+  background-color: yellow;
+  height: 40em;
+  width: 5em;
+  top: 0em;
+  left: 0em;
+  position: absolute;
 }

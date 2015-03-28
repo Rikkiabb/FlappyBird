@@ -70,7 +70,24 @@ window.Player = (function() {
 		){
 			return this.game.gameover();
 		}
+//---------------
+		var top2 = this.game.pipe1.top2;
 
+		if(this.pos.x + WIDTH >= top2.pos.x &&
+			this.pos.y <= top2.pos.y + top2.size.h &&
+			this.pos.x <= top2.pos.x + top2.size.w
+		){
+			return this.game.gameover();	
+		}
+
+		var bottom2 = this.game.pipe1.bottom2;
+
+		if(this.pos.x + WIDTH >= bottom2.pos.x &&
+			this.pos.y + HEIGHT >= bottom2.pos.y + top2.size.h &&
+			this.pos.x <= bottom2.pos.x + bottom2.size.w 
+		){
+			return this.game.gameover();
+		}
 		
 	};
 

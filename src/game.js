@@ -3,7 +3,7 @@ window.Game = (function (){
 	var Game = function(el) {
 		this.el = el;
 
-		this.pipe1 = new window.Pipe(this.el.find('.topObstacle'), this.el.find('.bottomObstacle'), 60);
+		this.pipe1 = new window.Pipe(this.el.find('.topObstacle'), this.el.find('.bottomObstacle'), this.el.find('.topObstacle2'), this.el.find('.bottomObstacle2'));
 		//this.pipe2 = new window.Pipe(this.el.find('.topObstacle2'), this.el.find('.bottomObstacle2'), 40);
 		//this.pipe2 = new window.Pipe(this.el.find('.bottomObstacle'));
 		this.player = new window.Player(this.el.find('.birdy'), this);
