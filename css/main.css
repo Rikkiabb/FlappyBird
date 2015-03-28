@@ -1,3 +1,7 @@
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
 .gameGrid {
   font-size: 10px;
   position: absolute;
@@ -19,7 +23,7 @@
   left: 0em;
 }
 .topObstacle {
-  background-color: red;
+  background-image: url("veggur1.jpeg");
   height: 40em;
   width: 5em;
   top: 0em;
@@ -27,7 +31,7 @@
   position: absolute;
 }
 .bottomObstacle {
-  background-color: red;
+  background-image: url("veggur1.jpeg");
   height: 40em;
   width: 5em;
   top: 0em;
@@ -35,7 +39,7 @@
   position: absolute;
 }
 .topObstacle2 {
-  background-color: yellow;
+  background-image: url("veggur1.jpeg");
   height: 40em;
   width: 5em;
   top: 0em;
@@ -43,7 +47,7 @@
   position: absolute;
 }
 .bottomObstacle2 {
-  background-color: yellow;
+  background-image: url("veggur1.jpeg");
   height: 40em;
   width: 5em;
   top: 0em;
