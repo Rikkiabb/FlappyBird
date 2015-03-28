@@ -32,17 +32,6 @@
   top: 0em;
   left: 0em;
 }
-
-.ground {
-  position: absolute;
-  background-image: url("mist.jpg");
-  background-repeat: repeat-x;
-  height: 6em;
-  width: 70em;
-  top: 52em;
-  left: 0em;
-  -webkit-transform: translateZ(0);
-}
 .ground {
   position: absolute;
   background-image: url("moon.jpg");
@@ -51,8 +40,6 @@
   width: 74.1em;
   top: 52em;
   left: 0em;
-}
-.ground {
   -webkit-animation-name: ground-animation;
   -webkit-animation-duration: 0.75s;
   -webkit-animation-timing-function: linear;
@@ -68,7 +55,7 @@
   to {
     -webkit-transform: translate(-141px, 0);
   }
-
+}
 .Scoreboard {
   position: absolute;
   left: 50%;
@@ -101,5 +88,4 @@
   font-family: monospace;
   font-size: 2.4em;
   color: #00fd55;
-
 }
