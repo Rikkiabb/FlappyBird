@@ -1,5 +1,14 @@
 window.Game = (function (){
 
+	var audio = document.getElementById('background_audio');
+
+	document.getElementById('mute').addEventListener('click', function (e)
+	{
+	    e = e || window.event;
+	    audio.muted = !audio.muted;
+	    e.preventDefault();
+	}, false);
+
 	var Game = function(el) {
 		this.el = el;
 
@@ -57,15 +66,15 @@ window.Game = (function (){
 
 
 		// Should be refactored into a Scoreboard class.
-		// var that = this;
-		// var scoreboardEl = this.el.find('.Scoreboard');
-		// scoreboardEl
-		// 	.addClass('is-visible')
-		// 	.find('.Scoreboard-restart')
-		// 		.one('click', function() {
-		// 			scoreboardEl.removeClass('is-visible');
-		// 			that.start();
-		// 		});
+		var that = this;
+		var scoreboardEl = this.el.find('.Scoreboard');
+		scoreboardEl
+			.addClass('is-visible')
+			.find('.Scoreboard-restart')
+				.one('click', function() {
+					scoreboardEl.removeClass('is-visible');
+					that.start();
+				});
 	};
 
 	Game.prototype.WORLD_WIDTH = 60;
