@@ -17,7 +17,7 @@ window.Pipe = (function (){
 		this.bottom.pos = { x: 0, y: 0 };
 		this.bottom.size = {w: 0, h: 0};
 		// Cache a bound onFrame since we need it each frame.
-		this.onFrame = this.onFrame.bind(this);
+		//this.onFrame = this.onFrame.bind(this);
 	};
 
 	Pipe.prototype.reset = function() {

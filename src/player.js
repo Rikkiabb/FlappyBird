@@ -66,10 +66,16 @@ window.Player = (function() {
 		// ){
 		// 	return this.game.gameover();	
 		// }
+
 		var bottom = this.game.pipe1.bottom;
+
+		console.log(this.pos.x + WIDTH, ">=", bottom.pos.x);
+
+		console.log(this.pos.y + HEIGHT ,"<=", bottom.pos.y + top.size.h);
+
 		if(this.pos.x + WIDTH >= bottom.pos.x &&
-			 this.pos.y + HEIGHT <= bottom.pos.y
-			 // this.pos.x <= bottom.pos.x + bottom.size.w 
+			this.pos.y + HEIGHT >= bottom.pos.y + top.size.h &&
+			this.pos.x <= bottom.pos.x + bottom.size.w 
 		){
 			return this.game.gameover();
 		}
