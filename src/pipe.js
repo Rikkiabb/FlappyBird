@@ -81,9 +81,7 @@ window.Pipe = (function (){
 			this.bottom2.pos.x = INITIAL_POSITION_X;
 			this.top2.pos.y = newYpos;
 			this.bottom2.pos.y = newYpos + 13 + INITIAL_HEIGHT;
-		}
-
-
+		}	
 
 		// Update UI
 		this.top.css('transform', 'translateZ(0) translate(' + this.top.pos.x + 'em, ' + this.top.pos.y + 'em)');
