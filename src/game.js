@@ -65,7 +65,8 @@ window.Game = (function (){
 		this.isPlaying = false;
 		$(".ground").css("-webkit-animation-play-state", "paused");
 		//.player.death();
-
+		$("#myScore").text("");
+		$("#scoreBoardResault").text(this.player.score);
 		// Should be refactored into a Scoreboard class.
 		var that = this;
 		var scoreboardEl = this.el.find('.Scoreboard');

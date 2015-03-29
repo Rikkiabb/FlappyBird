@@ -62,6 +62,18 @@ img {
   font-family: monospace;
   color: white;
 }
+#scoreBoardResault {
+  margin-top: 1em;
+  font-size: 3em;
+  font-family: monospace;
+  color: white;
+}
+#scoreBoardResaultText {
+  margin-top: 2em;
+  font-size: 3em;
+  font-family: monospace;
+  color: white;
+}
 .ground {
   position: absolute;
   background-image: url("moon.jpg");
@@ -164,13 +176,12 @@ img {
   -webkit-transform: none;
 }
 .Scoreboard-restart {
-  margin-top: 20em;
+  margin-top: 6em;
   font-size: inherit;
   padding: 0.4em 1.5em;
   border: 0.2em solid #00fd55;
   background: none;
   cursor: pointer;
-  -webkit-transform: translateZ(0);
 }
 .Scoreboard-restartText {
   font-family: monospace;
