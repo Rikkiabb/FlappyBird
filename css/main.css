@@ -16,11 +16,52 @@ img {
 }
 .birdy {
   position: absolute;
-  background-color: #00cc00;
+  background-color: #f82f4f;
   height: 5em;
   width: 5em;
   top: 0em;
   left: 0em;
+  border-radius: 14%;
+}
+.eyes {
+  background-color: #FFF;
+  border-radius: 100%;
+  position: absolute;
+  width: 1.5em;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1em;
+  left: 4em;
+  top: 0.4em;
+}
+.wings {
+  background-color: #F82F4F;
+  width: 0;
+  height: 0;
+  border-left: 2em solid rgba(10, 0, 0, 0);
+  border-right: 2em solid rgba(0, 0, 0, 0);
+  border-top: 20px solid #AE384A;
+  position: absolute;
+  top: 2.5em;
+  transform-origin: top left;
+  animation: 0.4s flap alernate infinity;
+  -webkit-animation-name: flap;
+  -webkit-animation-duration: 0.4s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-delay: 0;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: none;
+}
+.beak {
+  position: absolute;
+  width: 1em;
+  height: 0;
+  border-top: 11px solid rgba(0, 0, 0, 0);
+  border-bottom: 12px solid rgba(0, 0, 0, 0);
+  border-left: 15px solid #A6A146;
+  left: 4.9em;
+  top: 1.8em;
 }
 .topObstacle {
   background-image: url("veggur1.jpeg");
@@ -128,6 +169,14 @@ img {
   }
   to {
     -webkit-transform: translate(-2000px, 0);
+  }
+}
+@-webkit-keyframes flap {
+  from {
+    -webkit-transform: rotateX(0);
+  }
+  to {
+    -webkit-transform: rotateX(180deg);
   }
 }
 @-webkit-keyframes ground-animation {
