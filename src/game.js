@@ -64,7 +64,7 @@ window.Game = (function (){
 	Game.prototype.gameover = function() {
 		this.isPlaying = false;
 		$(".ground").css("-webkit-animation-play-state", "paused");
-		this.player.death();
+		//.player.death();
 
 		// Should be refactored into a Scoreboard class.
 		var that = this;
