@@ -30,12 +30,12 @@ window.Player = (function() {
 	Player.prototype.onFrame = function(delta) {
 		
 		if(Controls.didJump()){
-			this.pos.y -= 0.14 * 20;
+			this.pos.y -= 0.12 * 20;
 			this.jump -= 1;
 			this.gravity = 0;
 		}
 		if(this.jump == 4){
-			this.pos.y -= 0.12 * 20;
+			this.pos.y -= 0.10 * 20;
 			this.jump -= 1;
 		}
 		else if(this.jump == 3){
@@ -53,11 +53,11 @@ window.Player = (function() {
 		else if(this.jump == 0){
 			this.jump = 5;
 		}
-
-		
-		this.pos.y += delta * 20 + this.gravity;
-		this.gravity += 0.015;
-		this.checkCollision();
+		else{
+			this.pos.y += delta * 0.60 + this.gravity;
+			this.gravity += 0.03;
+			this.checkCollision();			
+		}
 
 		// Update UI
 		this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
@@ -82,7 +82,8 @@ window.Player = (function() {
 			this.pos.x + WIDTH > this.game.WORLD_WIDTH ||
 			this.pos.y < 0 ||
 			this.pos.y + HEIGHT > this.game.WORLD_HEIGHT) {
-			return this.game.gameover();
+				//this.death();
+				return this.game.gameover();			
 		}
 	}
 	Player.prototype.checkCollisionWithTopPipes = function(pipe) {
@@ -106,9 +107,22 @@ window.Player = (function() {
 		}
 	}
 	Player.prototype.updateScore = function(pipe) {
-		if(this.pos.x > pipe.pos.x + WIDTH && this.pos.x < pipe.pos.x + WIDTH + 0.25 ){
+		if(this.pos.x > pipe.pos.x + WIDTH && this.pos.x < pipe.pos.x + WIDTH + 0.27 ){
 			this.score += 1;
 		}
+	}
+	Player.prototype.death = function() {
+		console.log("DEATH", this.game.WORLD_HEIGHT);
+		console.log("DEATH", this.pos.y + WIDTH);
+		console.log("DEATH", this.pos.y - (0.04 * 20) + WIDTH);
+		while(this.pos.y + WIDTH < this.game.WORLD_HEIGHT){
+			console.log("---",this.pos.y);
+			this.pos.y += 1;
+		}
+		// setInterval(function(){ 
+		//     this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');   
+		// }, 500);
+		
 	}
 	return Player;
 

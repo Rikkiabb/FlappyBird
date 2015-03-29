@@ -57,13 +57,14 @@ window.Game = (function (){
 		this.player.reset();
 		this.pipe1.reset();
 		this.player.score = 0;
+		this.player.gravity = 0;
 	};
 
 
 	Game.prototype.gameover = function() {
 		this.isPlaying = false;
 		$(".ground").css("-webkit-animation-play-state", "paused");
-
+		this.player.death();
 
 		// Should be refactored into a Scoreboard class.
 		var that = this;
