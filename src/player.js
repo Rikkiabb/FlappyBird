@@ -68,10 +68,10 @@ window.Player = (function() {
 		$("#myScore").text(this.score);
 		this.checkCollisionWithBounds();
 
-		this.checkCollisionWithTopPipes(this.game.pipe1.top);
-		this.checkCollisionWithTopPipes(this.game.pipe1.top2);
-		this.checkCollisionWithBottomPipes(this.game.pipe1.bottom);
-		this.checkCollisionWithBottomPipes(this.game.pipe1.bottom2);
+		// this.checkCollisionWithTopPipes(this.game.pipe1.top);
+		// this.checkCollisionWithTopPipes(this.game.pipe1.top2);
+		// this.checkCollisionWithBottomPipes(this.game.pipe1.bottom);
+		// this.checkCollisionWithBottomPipes(this.game.pipe1.bottom2);
 
 		this.updateScore(this.game.pipe1.top);
 		this.updateScore(this.game.pipe1.top2);
@@ -107,8 +107,9 @@ window.Player = (function() {
 		}
 	}
 	Player.prototype.updateScore = function(pipe) {
-		if(this.pos.x > pipe.pos.x + WIDTH && this.pos.x < pipe.pos.x + WIDTH + 0.27 ){
+		if(this.pos.x > pipe.pos.x + WIDTH && pipe.hasPoint == true){
 			this.score += 1;
+			pipe.hasPoint = false
 		}
 	}
 	Player.prototype.death = function() {

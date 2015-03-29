@@ -17,12 +17,14 @@ window.Pipe = (function (){
 
 		this.top.pos = { x: 0, y: 0 };
 		this.top.size = {w: 0, h: 0};
+		this.top.hasPoint = true; 
 
 		this.bottom.pos = { x: 0, y: 0 };
 		this.bottom.size = {w: 0, h: 0};
 
 		this.top2.pos = { x: 0, y: 0 };
 		this.top2.size = {w: 0, h: 0};
+		this.top2.hasPoint = true;
 
 		this.bottom2.pos = { x: 0, y: 0 };
 		this.bottom2.size = {w: 0, h: 0};
@@ -71,6 +73,7 @@ window.Pipe = (function (){
 			this.bottom.pos.x = INITIAL_POSITION_X;
 			this.top.pos.y = newYpos;
 			this.bottom.pos.y = newYpos + 16 + INITIAL_HEIGHT;
+			this.top.hasPoint = true;
 		}
 		if(this.top2.pos.x <= -6){
 
@@ -81,6 +84,7 @@ window.Pipe = (function (){
 			this.bottom2.pos.x = INITIAL_POSITION_X;
 			this.top2.pos.y = newYpos;
 			this.bottom2.pos.y = newYpos + 16 + INITIAL_HEIGHT;
+			this.top2.hasPoint = true;
 		}	
 
 		// Update UI
