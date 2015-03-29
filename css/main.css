@@ -170,6 +170,7 @@ img {
   border: 0.2em solid #00fd55;
   background: none;
   cursor: pointer;
+  -webkit-transform: translateZ(0);
 }
 .Scoreboard-restartText {
   font-family: monospace;
