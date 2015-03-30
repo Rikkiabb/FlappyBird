@@ -31,7 +31,7 @@ window.Player = (function() {
 		
 		if(Controls.didJump()){
 			var audioElem = document.getElementById("jumpSound");
-			audioElem.src = "Wings Flapping-SoundBible.com-889456791.mp3"; 
+			audioElem.src = "birdie.mov"; 
 			audioElem.play();
 			audioElem.loop = false;
 			this.pos.y -= 0.12 * 20;

@@ -83,8 +83,8 @@ window.Game = (function (){
 	Game.prototype.gameover = function() {
 		this.isPlaying = false;
 		var audioElem = document.getElementById("background_audio");
-		audioElem.volume = 0.2;
-		audioElem.src = "Slap-SoundMaster13-49669815.mp3"; 
+		audioElem.volume = 0.99;
+		audioElem.src = "tiger.mov"; 
 		audioElem.play();
 		audioElem.loop = false;
 		$(".ground").css("-webkit-animation-play-state", "paused");
