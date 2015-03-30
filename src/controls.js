@@ -23,7 +23,8 @@ window.Controls = (function() {
         this.keys = {};
         $(window)
             .on('keydown', this._onKeyDown.bind(this))
-            .on('keyup', this._onKeyUp.bind(this));
+            .on('keyup', this._onKeyUp.bind(this))
+            .on('touchstart', this._onTouch.bind(this));
     };
 
     Controls.prototype._onKeyDown = function(e) {
@@ -47,6 +48,10 @@ window.Controls = (function() {
             this.keys[keyName] = false;
             return false;
         }
+    };
+
+    Controls.prototype._onTouch = function(e) {
+        this._didJump = true;
     };
 
     /**
