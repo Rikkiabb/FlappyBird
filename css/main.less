@@ -1,14 +1,16 @@
-@space: black;
 @bird: rgb(248, 47, 79);
 @pipe: red;
 
-img{
-    max-width: 100%;
-    max-height: 100%;
+@fontSize: 10px;
+
+
+#mute{
+	height: 5em;
+	width: 5em;
 }
 
 .gameGrid{
-	font-size: 10px;
+	font-size: @fontSize;
 	position: absolute;
 	background-image: url("back.jpg");
 	height: 58em;
@@ -47,7 +49,7 @@ img{
 	height: 0;
 	border-left: 2em solid rgba(10, 0, 0, 0);
 	border-right: 2em solid rgba(0, 0, 0, 0);
-	border-top: 20px solid #AE384A;
+	border-top: 2em solid #AE384A;
 	position: absolute;
 	top: 2.5em;
 
@@ -66,9 +68,9 @@ img{
 	position: absolute;
 	width: 1em;
 	height: 0;
-	border-top: 11px solid rgba(0, 0, 0, 0);
-	border-bottom: 12px solid rgba(0, 0, 0, 0);
-	border-left: 15px solid #A6A146;
+	border-top: 1.1em solid rgba(0, 0, 0, 0);
+	border-bottom: 1.2em solid rgba(0, 0, 0, 0);
+	border-left: 1.5em solid #A6A146;
 	left: 4.9em;
 	top: 1.8em;
 }
@@ -137,7 +139,7 @@ img{
 	background-image: url("moon.jpg");
     background-repeat: repeat-x;
 	height: 6em;
-	width: 74.1em;
+	width: 400em;
 	top: 52em;
 	left: 0em;
 	

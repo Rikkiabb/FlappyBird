@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 	<title>Flappy</title>
 	<h1>Flappy</h1>
+	<audio id ="jumpSound"></audio>
+	<audio id="background_audio" autoplay="autoplay" loop>
+	  <source src="Daft-Punk-Instant-Crush-8-Bit-NES-Remake.mp3" type="audio/mp3"/>
+	</audio> 
+	<img src="css/unmute.jpeg" id="mute">
 </head>
 <body>
 
 	<div class="gameGrid">
 		<span id="myScore"></span>
 
-		<audio id="background_audio" autoplay="autoplay">
-		  <source src="03 Daft Punk & The Crystal Method - The Grid (Remixed by The Crystal Method).mp3" type="audio/mp3"/>
-		</audio> 
-		<a id="mute">MUTE</a>
 		<img src="css/ship.jpg" class="ship1">
 		<img src="css/cow.jpg" class="cow">
 		<div class="birdy">
@@ -44,8 +47,13 @@
 
 
 	<script src="bower_components/jquery/dist/jquery.js"></script>
+	<script type="text/javascript">less = { env: 'development'};</script>
 	<script type="text/javascript" src="node_modules/less/dist/less.js"></script>
+		<script type="text/javascript">less.watch();</script>
+
+
 	<script src="src/app.js"></script>
+
         <script src="src/controls.js"></script>
         <script src="src/game.js"></script>
         <script src="src/player.js"></script>

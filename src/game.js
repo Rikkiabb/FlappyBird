@@ -1,11 +1,18 @@
 window.Game = (function (){
 
 	var audio = document.getElementById('background_audio');
+	var flyaudio = document.getElementById('jumpSound');
 
 	document.getElementById('mute').addEventListener('click', function (e)
 	{
 	    e = e || window.event;
+	   	if(audio.muted){
+	    	document.getElementById('mute').src="css/unmute.jpeg";
+		} else {
+			document.getElementById('mute').src="css/mute.png";
+		}
 	    audio.muted = !audio.muted;
+	    flyaudio.muted = !flyaudio.muted;
 	    e.preventDefault();
 	}, false);
 
@@ -19,7 +26,15 @@ window.Game = (function (){
 		this.isPlaying = false;
 		// Cache a bound onFrame since we need it each frame.
 		this.onFrame = this.onFrame.bind(this);
+
+		var fontSize = Math.min(window.innerWidth / 60, window.innerHeight / 58);
+		this.el.css("font-size", fontSize + "px");
 	};
+
+	$( window ).resize(function() {
+  		var fontSize = Math.min(window.innerWidth / 60, window.innerHeight / 58);
+		$(".gameGrid").css("font-size", fontSize + "px");
+	});
 
 	Game.prototype.start = function() {
 		
@@ -58,11 +73,20 @@ window.Game = (function (){
 		this.pipe1.reset();
 		this.player.score = 0;
 		this.player.gravity = 0;
+		var audioElem = document.getElementById("background_audio");
+		audioElem.volume = 0.2;
+		audioElem.src = "Daft-Punk-Instant-Crush-8-Bit-NES-Remake.mp3"; 
+		audioElem.play();
 	};
 
 
 	Game.prototype.gameover = function() {
 		this.isPlaying = false;
+		var audioElem = document.getElementById("background_audio");
+		audioElem.volume = 0.2;
+		audioElem.src = "Slap-SoundMaster13-49669815.mp3"; 
+		audioElem.play();
+		audioElem.loop = false;
 		$(".ground").css("-webkit-animation-play-state", "paused");
 		//.player.death();
 		$("#myScore").text("");
