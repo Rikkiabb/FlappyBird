@@ -30,6 +30,10 @@ window.Player = (function() {
 	Player.prototype.onFrame = function(delta) {
 		
 		if(Controls.didJump()){
+			var audioElem = document.getElementById("jumpSound");
+			audioElem.src = "Wings Flapping-SoundBible.com-889456791.mp3"; 
+			audioElem.play();
+			audioElem.loop = false;
 			this.pos.y -= 0.12 * 20;
 			this.jump -= 1;
 			this.gravity = 0;
@@ -115,6 +119,7 @@ window.Player = (function() {
 		console.log("DEATH", this.game.WORLD_HEIGHT);
 		console.log("DEATH", this.pos.y + WIDTH);
 		console.log("DEATH", this.pos.y - (0.04 * 20) + WIDTH);
+		console.log("PLAY");
 		while(this.pos.y + WIDTH < this.game.WORLD_HEIGHT){
 			console.log("---",this.pos.y);
 			this.pos.y += 1;

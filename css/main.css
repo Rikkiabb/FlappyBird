@@ -1,6 +1,6 @@
-img {
-  max-width: 100%;
-  max-height: 100%;
+#mute {
+  height: 5em;
+  width: 5em;
 }
 .gameGrid {
   font-size: 10px;
@@ -170,7 +170,6 @@ img {
   border: 0.2em solid #00fd55;
   background: none;
   cursor: pointer;
-  -webkit-transform: translateZ(0);
 }
 .Scoreboard-restartText {
   font-family: monospace;

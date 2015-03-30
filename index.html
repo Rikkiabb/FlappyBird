@@ -5,16 +5,17 @@
 	<link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 	<title>Flappy</title>
 	<h1>Flappy</h1>
+	<audio id ="jumpSound"></audio>
+	<audio id="background_audio" autoplay="autoplay" loop>
+	  <source src="Daft-Punk-Instant-Crush-8-Bit-NES-Remake.mp3" type="audio/mp3"/>
+	</audio> 
+	<img src="css/unmute.jpeg" id="mute">
 </head>
 <body>
 
 	<div class="gameGrid">
 		<span id="myScore"></span>
 
-		<audio id="background_audio" autoplay="autoplay">
-		  <source src="03 Daft Punk & The Crystal Method - The Grid (Remixed by The Crystal Method).mp3" type="audio/mp3"/>
-		</audio> 
-		<a id="mute">MUTE</a>
 		<img src="css/ship.jpg" class="ship1">
 		<img src="css/cow.jpg" class="cow">
 		<div class="birdy"></div>
