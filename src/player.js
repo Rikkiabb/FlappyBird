@@ -7,8 +7,8 @@ window.Player = (function() {
 	var SPEED = 30; // * 10 pixels per second
 	var WIDTH = 5;
 	var HEIGHT = 5;
-	var INITIAL_POSITION_X = 30;
-	var INITIAL_POSITION_Y = 25;
+	var INITIAL_POSITION_X = 30.0;
+	var INITIAL_POSITION_Y = 25.0;
 
 	var Player = function(el, game) {
 		this.el = el;
@@ -111,11 +111,11 @@ window.Player = (function() {
 		}
 	}
 	Player.prototype.updateScore = function(pipe) {
-		//console.log("player pos: ", this.pos.x, " pipe pos: ",pipe.pos.x + WIDTH, " has point: ", pipe.hasPoint)
+		console.log("player pos: ", this.pos.x, " pipe pos: ",pipe.pos.x + WIDTH, " has point: ", pipe.hasPoint)
 		if(this.pos.x >= pipe.pos.x + WIDTH && pipe.hasPoint == true){
-			//console.log("------- UPDATE SCORE -----");
+			console.log("------- UPDATE SCORE -----");
 			this.score += 1;
-			pipe.hasPoint = false
+			pipe.hasPoint = false;
 		}
 	}
 	Player.prototype.death = function() {
@@ -124,7 +124,7 @@ window.Player = (function() {
 		console.log("DEATH", this.pos.y - (0.04 * 20) + WIDTH);
 		console.log("PLAY");
 		while(this.pos.y + WIDTH < this.game.WORLD_HEIGHT){
-			console.log("---",this.pos.y);
+			//console.log("---",this.pos.y);
 			this.pos.y += 1;
 		}
 		// setInterval(function(){ 

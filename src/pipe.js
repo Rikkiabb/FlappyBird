@@ -38,6 +38,7 @@ window.Pipe = (function (){
 		this.top.pos.y = INITIAL_POSITION_Y;
 		this.top.size.w = INITIAL_WIDTH;
 		this.top.size.h = INITIAL_HEIGHT;
+		this.top.hasPoint = true;
 
 		this.bottom.pos.x = INITIAL_POSITION_X;
 		this.bottom.pos.y = INITIAL_POSITION_Y + 16 + INITIAL_HEIGHT;
@@ -48,6 +49,7 @@ window.Pipe = (function (){
 		this.top2.pos.y = INITIAL_POSITION_Y;
 		this.top2.size.w = INITIAL_WIDTH;
 		this.top2.size.h = INITIAL_HEIGHT;
+		this.top2.hasPoint = true;
 
 		this.bottom2.pos.x = INITIAL_POSITION_X2;
 		this.bottom2.pos.y = INITIAL_POSITION_Y + 16 + INITIAL_HEIGHT;
@@ -74,6 +76,7 @@ window.Pipe = (function (){
 			this.top.pos.y = newYpos;
 			this.bottom.pos.y = newYpos + 16 + INITIAL_HEIGHT;
 			this.top.hasPoint = true;
+			console.log("update top: ",this.top.hasPoint);
 		}
 		if(this.top2.pos.x <= -6){
 
@@ -85,6 +88,7 @@ window.Pipe = (function (){
 			this.top2.pos.y = newYpos;
 			this.bottom2.pos.y = newYpos + 16 + INITIAL_HEIGHT;
 			this.top2.hasPoint = true;
+			console.log("update top2: ",this.top.hasPoint);
 		}	
 
 		// Update UI
