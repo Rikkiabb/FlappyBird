@@ -111,7 +111,9 @@ window.Player = (function() {
 		}
 	}
 	Player.prototype.updateScore = function(pipe) {
-		if(this.pos.x > pipe.pos.x + WIDTH && pipe.hasPoint == true){
+		//console.log("player pos: ", this.pos.x, " pipe pos: ",pipe.pos.x + WIDTH, " has point: ", pipe.hasPoint)
+		if(this.pos.x >= pipe.pos.x + WIDTH && pipe.hasPoint == true){
+			//console.log("------- UPDATE SCORE -----");
 			this.score += 1;
 			pipe.hasPoint = false
 		}
