@@ -26,7 +26,16 @@ window.Game = (function (){
 		this.isPlaying = false;
 		// Cache a bound onFrame since we need it each frame.
 		this.onFrame = this.onFrame.bind(this);
+
+		// var fontSize = Math.min(window.innerWidth / 60, window.innerHeight / 58);
+		// console.log(fontSize);
+		// this.el.css("font-size", fontSize + "px");
 	};
+
+	$( window ).resize(function() {
+  		var fontSize = Math.min(window.innerWidth / 60, window.innerHeight / 58);
+		$(".gameGrid").css("font-size", fontSize + "px");
+	});
 
 	Game.prototype.start = function() {
 		
