@@ -17,6 +17,7 @@ window.Game = (function (){
 	}, false);
 
 	var Game = function(el) {
+
 		this.el = el;
 
 		this.pipe1 = new window.Pipe(this.el.find('.topObstacle'), this.el.find('.bottomObstacle'), this.el.find('.topObstacle2'), this.el.find('.bottomObstacle2'));
@@ -29,12 +30,21 @@ window.Game = (function (){
 
 		var fontSize = Math.min(window.innerWidth / 60, window.innerHeight / 58);
 		this.el.css("font-size", fontSize + "px");
+
+        $(window).on('keydown', this._onKeyDown.bind(this));
 	};
 
 	$( window ).resize(function() {
   		var fontSize = Math.min(window.innerWidth / 60, window.innerHeight / 58);
 		$(".gameGrid").css("font-size", fontSize + "px");
 	});
+
+	Game.prototype._onKeyDown = function(e){
+	    if(e.keyCode == 32 && this.isPlaying == false){
+			this.el.find('.Scoreboard').removeClass('is-visible');
+	        this.start();
+	    }
+	};
 
 	Game.prototype.start = function() {
 		
@@ -47,8 +57,9 @@ window.Game = (function (){
 	};
 
 	Game.prototype.onFrame = function() {
-		// Check if the game loop should stop.
+
 		if (!this.isPlaying) {
+			//console.log("Game OVER");
 			return;
 		}
 
