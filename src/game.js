@@ -21,10 +21,11 @@ window.Game = (function (){
 		this.el = el;
 
 		this.pipe1 = new window.Pipe(this.el.find('.topObstacle'), this.el.find('.bottomObstacle'), this.el.find('.topObstacle2'), this.el.find('.bottomObstacle2'));
-		//this.pipe2 = new window.Pipe(this.el.find('.topObstacle2'), this.el.find('.bottomObstacle2'), 40);
-		//this.pipe2 = new window.Pipe(this.el.find('.bottomObstacle'));
+
 		this.player = new window.Player(this.el.find('.birdy'), this);
 		this.isPlaying = false;
+		this.hasStarted = false;
+		
 		// Cache a bound onFrame since we need it each frame.
 		this.onFrame = this.onFrame.bind(this);
 
@@ -40,6 +41,7 @@ window.Game = (function (){
 	});
 
 	Game.prototype._onKeyDown = function(e){
+		this.hasStarted = true;
 	    if(e.keyCode == 32 && this.isPlaying == false){
 			this.el.find('.Scoreboard').removeClass('is-visible');
 	        this.start();
@@ -68,6 +70,13 @@ window.Game = (function (){
 				delta = now - this.lastFrame;
 		this.lastFrame = now;
 
+		if(this.hasStarted == false){
+			this.pipe1.top.pos.x = 60; 
+			this.pipe1.bottom.pos.x = 60;
+			this.pipe1.top2.pos.x = 95; 
+			this.pipe1.bottom2.pos.x = 95;
+			this.player.pos.y = 25;
+		}	
 		//this.pipes.onFrame(delta);
 
 		// Update game entities.
@@ -76,7 +85,9 @@ window.Game = (function (){
 		//this.pipe2.onFrame(delta);
 
 		// Request next frame.
-		window.requestAnimationFrame(this.onFrame);
+		window.requestAnimationFrame(this.onFrame);			
+		
+
 	};
 
 	Game.prototype.reset = function() {
