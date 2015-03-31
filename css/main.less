@@ -15,6 +15,7 @@
 	font-size: @fontSize;
 	position: absolute;
 	background-image: url("back.jpg");
+	background-size: cover;
 	height: 58em;
 	width: 60em;
 	top: 50%;
@@ -177,7 +178,7 @@
 	-webkit-transform: translateZ(0);
 
 	-webkit-animation-name: ship-animation;
-	-webkit-animation-duration: 4s;
+	-webkit-animation-duration: 12s;
 	-webkit-animation-timing-function: linear;
 	-webkit-animation-delay: 0;
 	-webkit-animation-direction: normal;
@@ -189,16 +190,16 @@
 
 .cow{
 	position: absolute;
-	height: 6em;
-	width: 7em;
+	height: 2em;
+	width: 2em;
 	top: 17em;
-	left: 160em;
+	left: 65em;
 
 	-webkit-transform: translateZ(0);
 	
 
 	-webkit-animation-name: cow-animation;
-	-webkit-animation-duration: 12s;
+	-webkit-animation-duration: 32s;
 	-webkit-animation-timing-function: linear;
 	-webkit-animation-delay: 0;
 	-webkit-animation-direction: normal;
@@ -225,7 +226,8 @@
     -webkit-transform: rotateZ(180deg);
   }
   to {
-    -webkit-transform: translate(-2000px, 0);
+    -webkit-transform: translate(-200em, 0);
+    
   }
 }
 
@@ -252,16 +254,16 @@
     -webkit-transform: none;
   }
   25%{
-  	-webkit-transform: translate(30px, 0);
+  	-webkit-transform: translate(3em, 0);
   }
   50%{
-  	-webkit-transform: translate(-500px, 35px);
+  	-webkit-transform: translate(-50em, 3.5em);
   }
   75%{
-  	-webkit-transform: translate(-1000px, 10px);
+  	-webkit-transform: translate(-100em, 1em);
   }
   to {
-    -webkit-transform: translate(-2000px, 0);
+    -webkit-transform: translate(-200em, 0);
   }
 }
 
