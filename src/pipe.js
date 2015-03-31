@@ -8,6 +8,7 @@ window.Pipe = (function (){
 	var INITIAL_WIDTH = 5;
 	var INITIAL_HEIGHT = 40;
 
+	// Initialize the 4 pipes. Both top pipes hold a point
 	var Pipe = function(top, bottom, top2, bottom2) {
 
 		this.top = top;
@@ -33,6 +34,7 @@ window.Pipe = (function (){
 		this.onFrame = this.onFrame.bind(this);
 	};
 
+	// Set the pipes to its starting position with 16em between top and bottom
 	Pipe.prototype.reset = function() {
 		this.top.pos.x = INITIAL_POSITION_X;
 		this.top.pos.y = INITIAL_POSITION_Y;
@@ -59,36 +61,41 @@ window.Pipe = (function (){
 
 	Pipe.prototype.onFrame = function(delta) {
 
+		// moves the pipes from left to right
 		this.top.pos.x -= delta * 15;
 		this.bottom.pos.x -= delta * 15;
-
 		this.top2.pos.x -= delta * 15;
 		this.bottom2.pos.x -= delta * 15;
 
+		// if the first set of pipes go out of the screen they will reappear on the right side
 		if(this.top.pos.x <= -6){
 
 			var min = -32;
 			var max = -5;
+
+			// randomize the y coordinate for the top pipe
 			var newYpos = Math.floor(Math.random() * (max - min + 1)) + min;
 
+			// sets the pipe to the initial posiiton and bottom pipe 16em from the top
 			this.top.pos.x = INITIAL_POSITION_X;
 			this.bottom.pos.x = INITIAL_POSITION_X;
 			this.top.pos.y = newYpos;
 			this.bottom.pos.y = newYpos + 16 + INITIAL_HEIGHT;
 			this.top.hasPoint = true;
-			console.log("update top: ",this.top.hasPoint);
 		}
+		//same as for the first set
 		if(this.top2.pos.x <= -6){
 
 			var min = -32;
 			var max = -5;
+
 			var newYpos = Math.floor(Math.random() * (max - min + 1)) + min;
+
 			this.top2.pos.x = INITIAL_POSITION_X;
 			this.bottom2.pos.x = INITIAL_POSITION_X;
 			this.top2.pos.y = newYpos;
 			this.bottom2.pos.y = newYpos + 16 + INITIAL_HEIGHT;
 			this.top2.hasPoint = true;
-			console.log("update top2: ",this.top.hasPoint);
 		}	
 
 		// Update UI

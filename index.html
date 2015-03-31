@@ -1,64 +1,57 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-	<title>Flappy</title>
-</head>
-<body>
+	<head>
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<title>Flappy</title>
+	</head>
+	<body>
+		<div class="gameGrid">
+			<span id="myScore"></span>
 
-	<div class="gameGrid">
-		<span id="myScore"></span>
+			<img src="css/img/ship.jpg" class="ship1">
+			<img src="css/img/cow.jpg" class="cow">
 
-		<img src="css/ship.jpg" class="ship1">
-		<img src="css/cow.jpg" class="cow">
-		<div class="birdy">
-			<div class="eyes">*</div>
-			<div class="wings">.</div>
-			<div class="beak">.</div>
+			<div class="birdy">
+				<div class="eyes">*</div>
+				<div class="wings">.</div>
+				<div class="beak">.</div>
+			</div>
+
+			<div class="topObstacle obstacle"></div>
+			<div class="bottomObstacle obstacle"></div>
+			<div class="topObstacle2 obstacle"></div>
+			<div class="bottomObstacle2 obstacle"></div>
+			
+			<div class="ground"></div>
+
+			<audio id ="jumpSound"></audio>
+			<audio id="background_audio" autoplay="autoplay" loop>
+		  		<source src="sounds/Daft-Punk-Instant-Crush-8-Bit-NES-Remake.mp3" type="audio/mp3"/>
+			</audio> 
+
+			<img src="css/img/unmute.png" id="mute">
+
+			<div class="Scoreboard">
+				<div class="scoreBoardResaultText">Score</div>
+				<div class="scoreBoardResault" id="scoreBoardResaultMyScore"></div>
+				<div class="scoreBoardResaultText" id="bestMarg">Best</div>
+				<div class="scoreBoardResault" id="scoreBoardResaultBest"></div>
+	            <button class="Scoreboard-restart">
+	                <span class="Scoreboard-restartText">Restart</span>
+	            </button>
+	        </div>
+	        <img src="css/img/tiger.png" class="tiger">
 		</div>
 
-		<div class="topObstacle obstacle"></div>
-		<div class="bottomObstacle obstacle"></div>
-
-		<div class="topObstacle2 obstacle"></div>
-		<div class="bottomObstacle2 obstacle"></div>
-		
-		<div class="ground"></div>
-
-		<audio id ="jumpSound"></audio>
-		<audio id="background_audio" autoplay="autoplay" loop>
-	  		<source src="Daft-Punk-Instant-Crush-8-Bit-NES-Remake.mp3" type="audio/mp3"/>
-		</audio> 
-		<img src="css/unmute.png" id="mute">
-
-		<div class="Scoreboard">
-			<div class="scoreBoardResaultText">Score</div>
-			<div class="scoreBoardResault" id="scoreBoardResaultMyScore"></div>
-			<div class="scoreBoardResaultText" id="bestMarg">Best</div>
-			<div class="scoreBoardResault" id="scoreBoardResaultBest"></div>
-            <button class="Scoreboard-restart">
-                <span class="Scoreboard-restartText">
-                	Restart
-                </span>
-            </button>
-        </div>
-        <img src="css/tiger.png" class="tiger">
-	</div>
-	<div id="result"></div>
-
-	<script src="bower_components/jquery/dist/jquery.js"></script>
-	<script type="text/javascript">less = { env: 'development'};</script>
-	<script type="text/javascript" src="node_modules/less/dist/less.js"></script>
-		<script type="text/javascript">less.watch();</script>
-
-
-	<script src="src/app.js"></script>
-
+		<script src="bower_components/jquery/dist/jquery.js"></script>
+		<script type="text/javascript" src="node_modules/less/dist/less.js"></script>
+		<script src="src/app.js"></script>
         <script src="src/controls.js"></script>
         <script src="src/game.js"></script>
         <script src="src/player.js"></script>
         <script src="src/pipe.js"></script>
         <script src="src/utils.js"></script>
-</body>
+        
+	</body>
 </html>

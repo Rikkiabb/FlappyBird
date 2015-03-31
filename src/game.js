@@ -8,9 +8,9 @@ window.Game = (function (){
 	{
 	    e = e || window.event;
 	   	if(audio.muted){
-	    	document.getElementById('mute').src="css/unmute.png";
+	    	document.getElementById('mute').src="css/img/unmute.png";
 		} else {
-			document.getElementById('mute').src="css/mute.png";
+			document.getElementById('mute').src="css/img/mute.png";
 		}
 	    audio.muted = !audio.muted;
 	    flyaudio.muted = !flyaudio.muted;
@@ -30,6 +30,7 @@ window.Game = (function (){
 		this.player = new window.Player(this.el.find('.birdy'), this);
 		this.isPlaying = false;
 		this.hasStarted = false;
+		this.showScore = false;
 		
 		// Cache a bound onFrame since we need it each frame.
 		this.onFrame = this.onFrame.bind(this);
@@ -53,12 +54,32 @@ window.Game = (function (){
 		this.hasStarted = true;
 
 		// Starts a new game
-	    if(e.keyCode == 32 && this.isPlaying == false){
+	    if(e.keyCode == 32 && this.isPlaying == false && this.showScore){
+	    	this.showScore = false;
 	    	this.player.gravity = 0;
 			this.el.find('.Scoreboard').removeClass('is-visible');
 			this.el.find('.tiger').removeClass('is-visible');
 	        this.start();
 	    }
+	};
+
+	Game.prototype.showScoreboard = function(){
+		var newGame = this;
+		var tigerEl = this.el.find('.tiger');
+		var scoreboardEl = this.el.find('.Scoreboard');
+		
+		// On end of game, we show current score and best score
+		scoreboardEl
+			.addClass('is-visible')
+			.find('.Scoreboard-restart')
+				.one('click', function() {
+					newGame.showScore = false;
+					scoreboardEl.removeClass('is-visible');
+					tigerEl.removeClass('is-visible');
+					newGame.start();
+				});
+
+		this.showScore = true;	
 	};
 
 	Game.prototype.start = function() {
@@ -72,6 +93,7 @@ window.Game = (function (){
 		this.lastFrame = +new Date() / 1000;
 		window.requestAnimationFrame(this.onFrame);
 		this.isPlaying = true;
+		this.hasStarted = false;
 	};
 
 	Game.prototype.onFrame = function() {
@@ -85,7 +107,7 @@ window.Game = (function (){
 				delta = now - this.lastFrame;
 		this.lastFrame = now;
 
-		// Game starting position
+		// Game starting position when game has not started
 		if(this.hasStarted == false){
 			this.pipe1.top.pos.x = 60; 
 			this.pipe1.bottom.pos.x = 60;
@@ -114,7 +136,7 @@ window.Game = (function (){
 		// Reset background song
 		var audioElem = document.getElementById("background_audio");
 		audioElem.volume = 0.2;
-		audioElem.src = "Daft-Punk-Instant-Crush-8-Bit-NES-Remake.mp3"; 
+		audioElem.src = "sounds/Daft-Punk-Instant-Crush-8-Bit-NES-Remake.mp3"; 
 		audioElem.play();
 	};
 
@@ -126,22 +148,21 @@ window.Game = (function (){
 		// Sound of death
 		var audioElem = document.getElementById("background_audio");
 		audioElem.volume = 0.99;
-		audioElem.src = "tiger.mov"; 
+		audioElem.src = "sounds/tiger.mov"; 
 		audioElem.play();
 		audioElem.loop = false;
 
 		// shows the scoreboard and of course tiger
 		var newGame = this;
 		var tigerEl = this.el.find('.tiger');
-		var scoreboardEl = this.el.find('.Scoreboard');
-		scoreboardEl
-			.addClass('is-visible')
-			.find('.Scoreboard-restart')
-				.one('click', function() {
-					scoreboardEl.removeClass('is-visible');
-					tigerEl.removeClass('is-visible');
-					newGame.start();
-				});
+		
+		// dissable restart for 2,5 sec
+		var timeoutShowScore = function () {
+			newGame.showScoreboard();
+		}
+		setTimeout(timeoutShowScore, 2500);
+
+		// Tiger on screen 
 		tigerEl.addClass('is-visible');
 
 		// checks for new highscore

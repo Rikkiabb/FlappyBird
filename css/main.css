@@ -8,7 +8,7 @@
 .gameGrid {
   font-size: 10px;
   position: absolute;
-  background-image: url("back.jpg");
+  background-image: url("img/back.jpg");
   background-size: cover;
   height: 58em;
   width: 60em;
@@ -30,7 +30,7 @@
   border: solid;
   border-color: #6E6B63;
   position: absolute;
-  background-image: url("moon.jpg");
+  background-image: url("img/moon.jpg");
   background-repeat: repeat-x;
   height: 6em;
   width: 400em;
@@ -118,7 +118,7 @@
 .obstacle {
   border: solid;
   border-color: #50453c;
-  background-image: url("veggur1.jpeg");
+  background-image: url("img/veggur1.jpeg");
   height: 40em;
   width: 5em;
   top: 0em;

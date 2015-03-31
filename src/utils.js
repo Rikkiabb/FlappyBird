@@ -6,6 +6,5 @@ if (!window.requestAnimationFrame) {
             window.mozRequestAnimationFrame ||
             window.oRequestAnimationFrame ||
             window.msRequestAnimationFrame
-
     })();
 }

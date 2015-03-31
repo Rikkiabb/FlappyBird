@@ -3,7 +3,6 @@ window.Player = (function() {
 	var Controls = window.Controls;
 
 	// All these constants are in em's, multiply by 10 pixels
-
 	var SPEED = 30;
 	var WIDTH = 5;
 	var HEIGHT = 5;
@@ -36,7 +35,7 @@ window.Player = (function() {
 		if(Controls.didJump()){
 			// Jumping sound
 			var audioElem = document.getElementById("jumpSound");
-			audioElem.src = "birdie.mov"; 
+			audioElem.src = "sounds/birdie.mov"; 
 			audioElem.play();
 			audioElem.loop = false;
 
@@ -135,14 +134,12 @@ window.Player = (function() {
 	};
 
 	Player.prototype.updateScore = function(pipe) {
-		//console.log("player pos: ", this.pos.x, " pipe pos: ",pipe.pos.x + WIDTH, " has point: ", pipe.hasPoint)
+		// when player passes a pipe we increment the score
 		if(this.pos.x >= pipe.pos.x + WIDTH && pipe.hasPoint == true){
-			//console.log("------- UPDATE SCORE -----");
 			this.score += 1;
 			pipe.hasPoint = false;
 		}
 	};
 
 	return Player;
-
 })();
