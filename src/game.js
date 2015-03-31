@@ -7,7 +7,7 @@ window.Game = (function (){
 	{
 	    e = e || window.event;
 	   	if(audio.muted){
-	    	document.getElementById('mute').src="css/unmute.jpeg";
+	    	document.getElementById('mute').src="css/unmute.png";
 		} else {
 			document.getElementById('mute').src="css/mute.png";
 		}
