@@ -3,13 +3,14 @@ window.Player = (function() {
 	var Controls = window.Controls;
 
 	// All these constants are in em's, multiply by 10 pixels
-	// for 1024x576px canvas.
-	var SPEED = 30; // * 10 pixels per second
+
+	var SPEED = 30;
 	var WIDTH = 5;
 	var HEIGHT = 5;
 	var INITIAL_POSITION_X = 30.0;
 	var INITIAL_POSITION_Y = 25.0;
 
+	// Initalize the player
 	var Player = function(el, game) {
 		this.el = el;
 		this.game = game;
@@ -30,15 +31,20 @@ window.Player = (function() {
 	Player.prototype.onFrame = function(delta) {
 		
 		if(Controls.didJump()){
+			// Jumping sound
 			var audioElem = document.getElementById("jumpSound");
 			audioElem.src = "birdie.mov"; 
 			audioElem.play();
 			audioElem.loop = false;
+
+			// Starts jumping
 			this.pos.y -= 0.12 * 20;
 			this.jump -= 1;
 			this.gravity = 0;
 			this.inTheAir = true;
 		}
+
+		// Makes jumping more smooth
 		if(this.inTheAir == true){
 			if(this.jump == 4){
 				this.pos.y -= 0.10 * 20;
@@ -62,8 +68,12 @@ window.Player = (function() {
 			}		
 		}
 		else{
+			// Player drops
 			this.pos.y += delta * 0.60 + this.gravity;
+
+			// Gravity increases
 			this.gravity += 0.03;
+
 			this.checkCollision();			
 		}
 
@@ -73,18 +83,22 @@ window.Player = (function() {
 	};
 
 	Player.prototype.checkCollision = function() {
+		// Updates score in left top corner
 		$("#myScore").text(this.score);
-		this.checkCollisionWithBounds();
 
+		// Checks for collition
+		this.checkCollisionWithBounds();
 		this.checkCollisionWithTopPipes(this.game.pipe1.top);
 		this.checkCollisionWithTopPipes(this.game.pipe1.top2);
 		this.checkCollisionWithBottomPipes(this.game.pipe1.bottom);
 		this.checkCollisionWithBottomPipes(this.game.pipe1.bottom2);
 
+		// Checks if the player has passed an obstacle
 		this.updateScore(this.game.pipe1.top);
 		this.updateScore(this.game.pipe1.top2);
 		
 	};
+
 	Player.prototype.checkCollisionWithBounds = function() {
 		if (this.pos.x < 0 ||
 			this.pos.x + WIDTH > this.game.WORLD_WIDTH ||
@@ -93,7 +107,8 @@ window.Player = (function() {
 				//this.death();
 				return this.game.gameover();			
 		}
-	}
+	};
+
 	Player.prototype.checkCollisionWithTopPipes = function(pipe) {
 		var top = pipe;
 
@@ -103,7 +118,8 @@ window.Player = (function() {
 		){
 			return this.game.gameover();	
 		}
-	}
+	};
+
 	Player.prototype.checkCollisionWithBottomPipes = function(pipe) {
 		var bottom = pipe;
 
@@ -113,7 +129,8 @@ window.Player = (function() {
 		){
 			return this.game.gameover();
 		}
-	}
+	};
+
 	Player.prototype.updateScore = function(pipe) {
 		//console.log("player pos: ", this.pos.x, " pipe pos: ",pipe.pos.x + WIDTH, " has point: ", pipe.hasPoint)
 		if(this.pos.x >= pipe.pos.x + WIDTH && pipe.hasPoint == true){
@@ -121,16 +138,8 @@ window.Player = (function() {
 			this.score += 1;
 			pipe.hasPoint = false;
 		}
-	}
-	Player.prototype.death = function() {
-		console.log("DEATH", this.game.WORLD_HEIGHT);
-		console.log("DEATH", this.pos.y + WIDTH);
-		console.log("DEATH", this.pos.y - (0.04 * 20) + WIDTH);
-		console.log("PLAY");
-		while(this.pos.y + WIDTH < this.game.WORLD_HEIGHT){
-			this.pos.y += 1;
-		}
-	}
+	};
+
 	return Player;
 
 })();

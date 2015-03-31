@@ -18,6 +18,113 @@
   margin-top: -26.5em;
   overflow: hidden;
 }
+#myScore {
+  position: absolute;
+  top: 2em;
+  left: 2em;
+  font-size: 3em;
+  font-family: monospace;
+  color: white;
+}
+.ground {
+  border: solid;
+  border-color: #6E6B63;
+  position: absolute;
+  background-image: url("moon.jpg");
+  background-repeat: repeat-x;
+  height: 6em;
+  width: 400em;
+  top: 52em;
+  left: 0em;
+  -webkit-transform: translateZ(0);
+  -webkit-animation-name: ground-animation;
+  -webkit-animation-duration: 0.75s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-delay: 0;
+  -webkit-animation-direction: normal;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: none;
+}
+@-webkit-keyframes ground-animation {
+  from {
+    -webkit-transform: none;
+  }
+  to {
+    -webkit-transform: translate(-141px, 0);
+  }
+}
+.Scoreboard {
+  border: solid;
+  border-radius: 7%;
+  border-color: #00fd55;
+  position: absolute;
+  left: 50%;
+  top: 10em;
+  height: 30em;
+  width: 40em;
+  margin-left: -20em;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: black;
+  text-align: center;
+  -webkit-transform: translate(0, -40em);
+  -webkit-transition: -webkit-transform 0.5s;
+}
+/**
+* Reset transform to animate it into the correct spot on the screen.
+*/
+.Scoreboard.is-visible {
+  -webkit-transform: none;
+}
+.Scoreboard-restart {
+  margin-top: 2em;
+  font-size: inherit;
+  padding: 0.4em 1.5em;
+  border: 0.2em solid #00fd55;
+  background: none;
+  cursor: pointer;
+}
+.Scoreboard-restartText {
+  font-family: monospace;
+  font-size: 2.4em;
+  color: #00fd55;
+}
+.scoreBoardResault {
+  margin-top: 0em;
+  font-size: 3em;
+  font-family: monospace;
+  color: white;
+}
+.scoreBoardResaultText {
+  margin-top: 1em;
+  font-size: 3em;
+  font-family: monospace;
+  color: white;
+}
+#bestMarg {
+  margin-top: 0em;
+}
+.tiger {
+  position: absolute;
+  top: 44em;
+  left: 41em;
+  width: 15em;
+  -webkit-transform: translate(0, 16em);
+  -webkit-transition: -webkit-transform 2s;
+}
+.tiger.is-visible {
+  -webkit-transform: none;
+}
+.obstacle {
+  border: solid;
+  border-color: #50453c;
+  background-image: url("veggur1.jpeg");
+  height: 40em;
+  width: 5em;
+  top: 0em;
+  left: 0em;
+  position: absolute;
+}
 .birdy {
   position: absolute;
   background-color: #f82f4f;
@@ -67,96 +174,13 @@
   left: 4.9em;
   top: 1.8em;
 }
-.topObstacle {
-  border: solid;
-  border-color: #50453c;
-  background-image: url("veggur1.jpeg");
-  height: 40em;
-  width: 5em;
-  top: 0em;
-  left: 0em;
-  position: absolute;
-}
-.bottomObstacle {
-  border: solid;
-  border-color: #50453c;
-  background-image: url("veggur1.jpeg");
-  height: 40em;
-  width: 5em;
-  top: 0em;
-  left: 0em;
-  position: absolute;
-}
-.topObstacle2 {
-  border: solid;
-  border-color: #50453c;
-  background-image: url("veggur1.jpeg");
-  height: 40em;
-  width: 5em;
-  top: 0em;
-  left: 0em;
-  position: absolute;
-}
-.bottomObstacle2 {
-  border: solid;
-  border-color: #50453c;
-  background-image: url("veggur1.jpeg");
-  height: 40em;
-  width: 5em;
-  top: 0em;
-  left: 0em;
-  position: absolute;
-}
-#myScore {
-  position: absolute;
-  top: 2em;
-  left: 2em;
-  font-size: 3em;
-  font-family: monospace;
-  color: white;
-}
-#scoreBoardResault {
-  margin-top: 0em;
-  font-size: 3em;
-  font-family: monospace;
-  color: white;
-}
-#scoreBoardResaultText {
-  margin-top: 1em;
-  font-size: 3em;
-  font-family: monospace;
-  color: white;
-}
-#scoreBoardResaultBest {
-  margin-top: 0em;
-  font-size: 3em;
-  font-family: monospace;
-  color: white;
-}
-#scoreBoardResaultTextBest {
-  margin-top: 0em;
-  font-size: 3em;
-  font-family: monospace;
-  color: white;
-}
-.ground {
-  border: solid;
-  border-color: #6E6B63;
-  position: absolute;
-  background-image: url("moon.jpg");
-  background-repeat: repeat-x;
-  height: 6em;
-  width: 400em;
-  top: 52em;
-  left: 0em;
-  -webkit-transform: translateZ(0);
-  -webkit-animation-name: ground-animation;
-  -webkit-animation-duration: 0.75s;
-  -webkit-animation-timing-function: linear;
-  -webkit-animation-delay: 0;
-  -webkit-animation-direction: normal;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-fill-mode: none;
+@-webkit-keyframes flap {
+  from {
+    -webkit-transform: rotateX(0);
+  }
+  to {
+    -webkit-transform: rotateX(180deg);
+  }
 }
 .ship1 {
   position: absolute;
@@ -189,39 +213,12 @@
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-fill-mode: none;
 }
-.tiger {
-  position: absolute;
-  top: 44em;
-  left: 41em;
-  width: 15em;
-  -webkit-transform: translate(0, 16em);
-  -webkit-transition: -webkit-transform 2s;
-}
-.tiger.is-visible {
-  -webkit-transform: none;
-}
 @-webkit-keyframes cow-animation {
   from {
     -webkit-transform: rotateZ(180deg);
   }
   to {
     -webkit-transform: translate(-200em, 0);
-  }
-}
-@-webkit-keyframes flap {
-  from {
-    -webkit-transform: rotateX(0);
-  }
-  to {
-    -webkit-transform: rotateX(180deg);
-  }
-}
-@-webkit-keyframes ground-animation {
-  from {
-    -webkit-transform: none;
-  }
-  to {
-    -webkit-transform: translate(-141px, 0);
   }
 }
 @-webkit-keyframes ship-animation {
@@ -240,40 +237,4 @@
   to {
     -webkit-transform: translate(-200em, 0);
   }
-}
-.Scoreboard {
-  border: solid;
-  border-radius: 7%;
-  border-color: #00fd55;
-  position: absolute;
-  left: 50%;
-  top: 10em;
-  height: 30em;
-  width: 40em;
-  margin-left: -20em;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  background: black;
-  text-align: center;
-  -webkit-transform: translate(0, -40em);
-  -webkit-transition: -webkit-transform 0.5s;
-}
-/**
-* Reset transform to animate it into the correct spot on the screen.
-*/
-.Scoreboard.is-visible {
-  -webkit-transform: none;
-}
-.Scoreboard-restart {
-  margin-top: 2em;
-  font-size: inherit;
-  padding: 0.4em 1.5em;
-  border: 0.2em solid #00fd55;
-  background: none;
-  cursor: pointer;
-}
-.Scoreboard-restartText {
-  font-family: monospace;
-  font-size: 2.4em;
-  color: #00fd55;
 }

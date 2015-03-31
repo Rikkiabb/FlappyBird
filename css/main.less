@@ -1,6 +1,4 @@
 @bird: rgb(248, 47, 79);
-@pipe: #50453C;
-
 @fontSize: 10px;
 
 #mute{
@@ -23,105 +21,6 @@
 	margin-left: -31em;
 	margin-top: -26.5em;
 	overflow: hidden;
-
-}
-
-.birdy{
-	position: absolute;
-	background-color: @bird;
-	height: 5em;
-	width: 5em;
-	top: 0em;
-	left: 0em;
-	border-radius: 14%;
-}
-.eyes{
-  background-color: #FFF;
-  border-radius: 100%;
-  position: absolute;
-  width: 1.5em;
-  text-align: center;
-  font-weight: bold;
-  font-size: 1em;
-  left: 4em;
-  top: 0.4em;	
-}
-.wings{
-	background-color: #F82F4F;
-	width: 0;
-	height: 0;
-	border-left: 2em solid rgba(10, 0, 0, 0);
-	border-right: 2em solid rgba(0, 0, 0, 0);
-	border-top: 2em solid #AE384A;
-	position: absolute;
-	top: 2.5em;
-
-	transform-origin: top left;
-	animation: 0.4s flap alernate infinity;
-
-	-webkit-animation-name: flap;
-	-webkit-animation-duration: 0.4s;
-	-webkit-animation-timing-function: linear;
-	-webkit-animation-delay: 0;
-	-webkit-animation-direction: alternate;
-	-webkit-animation-iteration-count: infinite;
-	-webkit-animation-fill-mode: none;
-}
-.beak{
-	position: absolute;
-	width: 1em;
-	height: 0;
-	border-top: 1.1em solid rgba(0, 0, 0, 0);
-	border-bottom: 1.2em solid rgba(0, 0, 0, 0);
-	border-left: 1.5em solid #A6A146;
-	left: 4.9em;
-	top: 1.8em;
-}
-
-
-.topObstacle{
-	border: solid;
-	border-color: @pipe;
-	background-image: url("veggur1.jpeg");
-	height: 40em;
-	width: 5em;
-	top: 0em;
-	left: 0em;
-	position: absolute;
-
-}
-
-.bottomObstacle{
-	border: solid;
-	border-color: @pipe;
-	background-image: url("veggur1.jpeg");
-	height: 40em;
-	width: 5em;
-	top: 0em;
-	left: 0em;
-	position: absolute;
-}
-
-.topObstacle2{
-	border: solid;
-	border-color: @pipe;
-	background-image: url("veggur1.jpeg");
-	height: 40em;
-	width: 5em;
-	top: 0em;
-	left: 0em;
-	position: absolute;
-}
-
-.bottomObstacle2{
-	border: solid;
-	border-color: @pipe;
-	background-image: url("veggur1.jpeg");
-	height: 40em;
-	width: 5em;
-	top: 0em;
-	left: 0em;
-	position: absolute;
 }
 
 #myScore{
@@ -132,30 +31,7 @@
 	font-family: monospace;
 	color: white;
 }
-#scoreBoardResault{
-	margin-top: 0em;
-	font-size: 3em;
-	font-family: monospace;
-	color: white;
-}
-#scoreBoardResaultText{
-	margin-top: 1em;
-	font-size: 3em;
-	font-family: monospace;
-	color: white;	
-}
-#scoreBoardResaultBest{
-	margin-top: 0em;
-	font-size: 3em;
-	font-family: monospace;
-	color: white;
-}
-#scoreBoardResaultTextBest{
-	margin-top: 0em;
-	font-size: 3em;
-	font-family: monospace;
-	color: white;	
-}
+
 .ground{
 	border: solid;
 	border-color: #6E6B63;
@@ -178,79 +54,6 @@
 	-webkit-animation-fill-mode: none;
 }
 
-.ship1{
-	position: absolute;
-	height: 12em;
-	width: 11em;
-	top: 2em;
-	left: 65em;
-	overflow: hidden;
-	
-	-webkit-transform: translateZ(0);
-
-	-webkit-animation-name: ship-animation;
-	-webkit-animation-duration: 12s;
-	-webkit-animation-timing-function: linear;
-	-webkit-animation-delay: 0;
-	-webkit-animation-direction: normal;
-	-webkit-animation-iteration-count: infinite;
-	-webkit-animation-fill-mode: none;
-
-
-}
-
-.cow{
-	position: absolute;
-	height: 2em;
-	width: 2em;
-	top: 17em;
-	left: 65em;
-
-	-webkit-transform: translateZ(0);
-	
-
-	-webkit-animation-name: cow-animation;
-	-webkit-animation-duration: 32s;
-	-webkit-animation-timing-function: linear;
-	-webkit-animation-delay: 0;
-	-webkit-animation-direction: normal;
-	-webkit-animation-iteration-count: infinite;
-	-webkit-animation-fill-mode: none;
-
-
-}
-.tiger{
-	position: absolute;
-	top: 44em;
-	left: 41em;
-	width: 15em;
-
-	-webkit-transform: translate(0, 16em);
-	-webkit-transition: -webkit-transform 2s;
-}
-.tiger.is-visible {
-  -webkit-transform: none;
-}
-
-@-webkit-keyframes cow-animation {
-  from {
-    -webkit-transform: rotateZ(180deg);
-  }
-  to {
-    -webkit-transform: translate(-200em, 0);
-    
-  }
-}
-
-@-webkit-keyframes flap {
-  from {
-    -webkit-transform: rotateX(0);
-  }
-  to {
-    -webkit-transform: rotateX(180deg);
-  }
-}
-
 @-webkit-keyframes ground-animation {
   from {
     -webkit-transform: none;
@@ -260,23 +63,8 @@
   }
 }
 
-@-webkit-keyframes ship-animation {
-  from {
-    -webkit-transform: none;
-  }
-  25%{
-  	-webkit-transform: translate(3em, 0);
-  }
-  50%{
-  	-webkit-transform: translate(-50em, 3.5em);
-  }
-  75%{
-  	-webkit-transform: translate(-100em, 1em);
-  }
-  to {
-    -webkit-transform: translate(-200em, 0);
-  }
-}
 
 @import "scoreboard";
-
+@import "pipes";
+@import "bird";
+@import "parallax";

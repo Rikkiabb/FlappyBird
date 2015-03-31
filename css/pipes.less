@@ -1,19 +1,13 @@
-.topObstacle{
-  -webkit-animation-name: test-animation;
-  -webkit-animation-duration: 5s;
-  -webkit-animation-timing-function:
-   linear;
-  -webkit-animation-delay: 0;
-  -webkit-animation-direction: normal;
-  -webkit-animation-iteration-count: infinite;
-  //-webkit-animation-fill-mode: none;
-}
+@pipe: #50453C;
+@back: url("veggur1.jpeg");
 
-@-webkit-keyframes test-animation {
-  from {
-    -webkit-transform: translate(60em, 0);
-  }
-  to {
-    -webkit-transform: translate(-10em, 0);
-  }
+.obstacle{
+  border: solid;
+  border-color: @pipe;
+  background-image: @back;
+  height: 40em;
+  width: 5em;
+  top: 0em;
+  left: 0em;
+  position: absolute;  
 }
