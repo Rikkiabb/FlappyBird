@@ -64,6 +64,8 @@
   top: 1.8em;
 }
 .topObstacle {
+  border: solid;
+  border-color: #50453c;
   background-image: url("veggur1.jpeg");
   height: 40em;
   width: 5em;
@@ -72,6 +74,8 @@
   position: absolute;
 }
 .bottomObstacle {
+  border: solid;
+  border-color: #50453c;
   background-image: url("veggur1.jpeg");
   height: 40em;
   width: 5em;
@@ -80,6 +84,8 @@
   position: absolute;
 }
 .topObstacle2 {
+  border: solid;
+  border-color: #50453c;
   background-image: url("veggur1.jpeg");
   height: 40em;
   width: 5em;
@@ -88,6 +94,8 @@
   position: absolute;
 }
 .bottomObstacle2 {
+  border: solid;
+  border-color: #50453c;
   background-image: url("veggur1.jpeg");
   height: 40em;
   width: 5em;
@@ -116,6 +124,8 @@
   color: white;
 }
 .ground {
+  border: solid;
+  border-color: #6E6B63;
   position: absolute;
   background-image: url("moon.jpg");
   background-repeat: repeat-x;
@@ -205,6 +215,9 @@
   }
 }
 .Scoreboard {
+  border: solid;
+  border-radius: 7%;
+  border-color: #00fd55;
   position: absolute;
   left: 50%;
   top: 10em;

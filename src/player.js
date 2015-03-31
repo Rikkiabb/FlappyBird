@@ -37,25 +37,29 @@ window.Player = (function() {
 			this.pos.y -= 0.12 * 20;
 			this.jump -= 1;
 			this.gravity = 0;
+			this.inTheAir = true;
 		}
-		if(this.jump == 4){
-			this.pos.y -= 0.10 * 20;
-			this.jump -= 1;
-		}
-		else if(this.jump == 3){
-			this.pos.y -= 0.09 * 20;
-			this.jump -= 1;
-		}
-		else if(this.jump == 2){
-			this.pos.y -= 0.05 * 20;
-			this.jump -= 1;
-		}		
-		else if(this.jump == 1){
-			this.pos.y -= 0.04 * 20;
-			this.jump -= 1;
-		}
-		else if(this.jump == 0){
-			this.jump = 5;
+		if(this.inTheAir == true){
+			if(this.jump == 4){
+				this.pos.y -= 0.10 * 20;
+				this.jump -= 1;
+			}
+			else if(this.jump == 3){
+				this.pos.y -= 0.09 * 20;
+				this.jump -= 1;
+			}
+			else if(this.jump == 2){
+				this.pos.y -= 0.05 * 20;
+				this.jump -= 1;
+			}		
+			else if(this.jump == 1){
+				this.pos.y -= 0.04 * 20;
+				this.jump -= 1;
+			}
+			else if(this.jump == 0){
+				this.jump = 5;
+				this.inTheAir = false;
+			}		
 		}
 		else{
 			this.pos.y += delta * 0.60 + this.gravity;
@@ -64,8 +68,8 @@ window.Player = (function() {
 		}
 
 		// Update UI
-		this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
-		
+		this.el.css('transform', ' translate3d(' + this.pos.x + 'em, ' + this.pos.y + 'em, 0em)');
+			
 	};
 
 	Player.prototype.checkCollision = function() {
@@ -111,9 +115,9 @@ window.Player = (function() {
 		}
 	}
 	Player.prototype.updateScore = function(pipe) {
-		console.log("player pos: ", this.pos.x, " pipe pos: ",pipe.pos.x + WIDTH, " has point: ", pipe.hasPoint)
+		//console.log("player pos: ", this.pos.x, " pipe pos: ",pipe.pos.x + WIDTH, " has point: ", pipe.hasPoint)
 		if(this.pos.x >= pipe.pos.x + WIDTH && pipe.hasPoint == true){
-			console.log("------- UPDATE SCORE -----");
+			//console.log("------- UPDATE SCORE -----");
 			this.score += 1;
 			pipe.hasPoint = false;
 		}
