@@ -44,6 +44,7 @@ window.Game = (function (){
 	Game.prototype._onKeyDown = function(e){
 		this.hasStarted = true;
 	    if(e.keyCode == 32 && this.isPlaying == false){
+	    	this.player.gravity = 0;
 			this.el.find('.Scoreboard').removeClass('is-visible');
 			this.el.find('.tiger').removeClass('is-visible');
 	        this.start();
@@ -106,6 +107,7 @@ window.Game = (function (){
 
 	Game.prototype.gameover = function() {
 		this.isPlaying = false;
+		this.player.gravity = 0;
 		var audioElem = document.getElementById("background_audio");
 		audioElem.volume = 0.99;
 		audioElem.src = "tiger.mov"; 
@@ -131,7 +133,10 @@ window.Game = (function (){
 
 	    if(typeof(Storage) !== "undefined") {
 	    	console.log(localStorage.highScore);
-	        if (localStorage.highScore < this.player.score) {
+	    	if(localStorage.highScore === undefined){
+	    		localStorage.highScore = 0;
+	    	}
+	        else if (localStorage.highScore < this.player.score) {
 	            localStorage.highScore = this.player.score;
 	        } 
 	    }
