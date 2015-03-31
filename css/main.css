@@ -176,6 +176,17 @@
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-fill-mode: none;
 }
+.tiger {
+  position: absolute;
+  top: 44em;
+  left: 41em;
+  width: 15em;
+  -webkit-transform: translate(0, 16em);
+  -webkit-transition: -webkit-transform 2s;
+}
+.tiger.is-visible {
+  -webkit-transform: none;
+}
 @-webkit-keyframes cow-animation {
   from {
     -webkit-transform: rotateZ(180deg);

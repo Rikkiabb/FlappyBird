@@ -44,6 +44,7 @@ window.Game = (function (){
 		this.hasStarted = true;
 	    if(e.keyCode == 32 && this.isPlaying == false){
 			this.el.find('.Scoreboard').removeClass('is-visible');
+			this.el.find('.tiger').removeClass('is-visible');
 	        this.start();
 	    }
 	};
@@ -115,14 +116,17 @@ window.Game = (function (){
 		$("#scoreBoardResault").text(this.player.score);
 		// Should be refactored into a Scoreboard class.
 		var that = this;
+		var tigerEl = this.el.find('.tiger');
 		var scoreboardEl = this.el.find('.Scoreboard');
 		scoreboardEl
 			.addClass('is-visible')
 			.find('.Scoreboard-restart')
 				.one('click', function() {
 					scoreboardEl.removeClass('is-visible');
+					tigerEl.removeClass('is-visible');
 					that.start();
 				});
+		tigerEl.addClass('is-visible');
 	};
 
 	Game.prototype.WORLD_WIDTH = 60;
