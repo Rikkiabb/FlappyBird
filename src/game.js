@@ -34,6 +34,7 @@ window.Game = (function (){
 	$( window ).resize(function() {
   		var fontSize = Math.min(window.innerWidth / 60, window.innerHeight / 58);
 		$(".gameGrid").css("font-size", fontSize + "px");
+		
 	});
 
 	Game.prototype.start = function() {
