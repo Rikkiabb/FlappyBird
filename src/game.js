@@ -114,7 +114,7 @@ window.Game = (function (){
 		$(".ground").css("-webkit-animation-play-state", "paused");
 		//.player.death();
 		$("#myScore").text("");
-		$("#scoreBoardResault").text(this.player.score);
+
 		// Should be refactored into a Scoreboard class.
 		var that = this;
 		var tigerEl = this.el.find('.tiger');
@@ -128,6 +128,15 @@ window.Game = (function (){
 					that.start();
 				});
 		tigerEl.addClass('is-visible');
+
+	    if(typeof(Storage) !== "undefined") {
+	    	console.log(localStorage.highScore);
+	        if (localStorage.highScore < this.player.score) {
+	            localStorage.highScore = this.player.score;
+	        } 
+	    }
+		$("#scoreBoardResault").text(this.player.score);
+		$("#scoreBoardResaultBest").text(localStorage.highScore);
 	};
 
 	Game.prototype.WORLD_WIDTH = 60;
