@@ -1,6 +1,9 @@
 #mute {
-  height: 5em;
-  width: 5em;
+  position: absolute;
+  left: 56em;
+  top: 1em;
+  height: 3em;
+  width: 3em;
 }
 .gameGrid {
   font-size: 10px;
