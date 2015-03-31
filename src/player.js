@@ -128,13 +128,8 @@ window.Player = (function() {
 		console.log("DEATH", this.pos.y - (0.04 * 20) + WIDTH);
 		console.log("PLAY");
 		while(this.pos.y + WIDTH < this.game.WORLD_HEIGHT){
-			//console.log("---",this.pos.y);
 			this.pos.y += 1;
 		}
-		// setInterval(function(){ 
-		//     this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');   
-		// }, 500);
-		
 	}
 	return Player;
 
