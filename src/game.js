@@ -54,6 +54,7 @@ window.Game = (function (){
 
 		// Starts a new game
 	    if(e.keyCode == 32 && this.isPlaying == false){
+	    	this.player.gravity = 0;
 			this.el.find('.Scoreboard').removeClass('is-visible');
 			this.el.find('.tiger').removeClass('is-visible');
 	        this.start();
@@ -120,6 +121,7 @@ window.Game = (function (){
 
 	Game.prototype.gameover = function() {
 		this.isPlaying = false;
+		this.player.gravity = 0;
 
 		// Sound of death
 		var audioElem = document.getElementById("background_audio");
@@ -144,7 +146,10 @@ window.Game = (function (){
 
 		// checks for new highscore
 	    if(typeof(Storage) !== "undefined") {
-	        if (localStorage.highScore < this.player.score) {
+	    	if(localStorage.highScore === undefined){
+	    		localStorage.highScore = 0;
+	    	}
+	        else if (localStorage.highScore < this.player.score) {
 	            localStorage.highScore = this.player.score;
 	        } 
 	    }

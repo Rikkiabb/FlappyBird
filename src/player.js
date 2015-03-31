@@ -26,6 +26,9 @@ window.Player = (function() {
 	Player.prototype.reset = function() {
 		this.pos.x = INITIAL_POSITION_X;
 		this.pos.y = INITIAL_POSITION_Y;
+		this.gravity = 0;
+		this.score = 0;
+		this.jump = 5;
 	};
 
 	Player.prototype.onFrame = function(delta) {
